@@ -11,6 +11,7 @@ import java.util.List;
 public class GuestbookService {
 
     @Autowired
+
     private GuestbookEntryRepository guestbookEntryRepository;
 
     public List<GuestbookEntry> findAllEntries() {
@@ -32,4 +33,9 @@ public class GuestbookService {
     public void save(GuestbookEntry newEntry) {
         this.guestbookEntryRepository.save (newEntry);
     }
+
+    public GuestbookEntry findOne (Integer id) {
+        return this.guestbookEntryRepository.findOne (id);
+    }
+
 }

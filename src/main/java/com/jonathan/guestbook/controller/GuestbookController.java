@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping ("/api")
 @RestController
 public class GuestbookController {
 
@@ -30,6 +31,10 @@ public class GuestbookController {
         return this.guestbookService.findGuestbookEntryByUser (user);
     }
 
+    @GetMapping ("/comments")
+    public List <GuestbookEntry> getAllComments () {
+        return guestbookService.findAllEntries ();
+    }
 
     @DeleteMapping("/comment/{id}")
     public void deleteGuestBookEntryById (@PathVariable ("id") Integer id) {
